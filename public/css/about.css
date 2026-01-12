@@ -1,0 +1,130 @@
+#about-heading{
+    font-size: 4.5rem;
+}
+
+
+
+#title{
+    font-size: 3rem; 
+}
+
+#description{
+    font-size: 1.5rem;
+}
+
+
+.menu-intro {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+
+.image-menu{
+    flex: 0 0 45%;
+}
+
+
+.image-menu > img{
+    width: 100%;
+    height: auto; 
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+.info{
+    flex: 1;
+    text-align: left;
+}
+
+
+
+.feature {
+    display: flex;
+    text-align: center;
+    padding: 2rem;
+    gap: 5rem;
+    max-width: 1100px;
+    margin: 4rem auto;   
+}
+
+
+.last-head{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 3rem;
+        background-color: #111111;
+}
+
+.team {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.member {
+    margin: 0;
+}
+
+.member img {
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+@media(max-width: 800px){
+    #name-restaurant{
+        font-size: 3.4rem;
+    }
+
+    #quote-text{
+    font-size: 1.8rem;
+    }
+
+    .order a{
+        font-size: 1.5rem;
+    }
+
+
+    #title{
+        font-size: 2rem;
+    }
+
+    #description{
+        font-size: 1rem;
+    }
+
+    .story{
+        padding: 0.5rem;
+        flex-direction: column;
+    }
+
+    .image img{
+        width: 100%;
+    }
+
+
+    .feature {
+        flex-direction: column;
+        background-color: none;
+        padding: 0.5rem 0;
+        gap: 0.1rem;
+    }
+
+    .team{
+        gap: 1rem;
+    }
+}
+
+@media(max-width: 900px){
+    .menu-intro{
+        flex-direction: column;
+    }
+}
