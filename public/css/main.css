@@ -8,7 +8,7 @@
  .wrapper {
     position: relative;
     text-align: center;
-    height: clamp(40vh, 85vh, 100vh);
+    /* height: clamp(40vh, 85vh, 100vh); */
     overflow: hidden; 
 }
 

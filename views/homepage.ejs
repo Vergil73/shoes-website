@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="/css/home.css">
     <!-- <link rel="stylesheet" href="/css/main.css"> -->
+    <script src="/script/home.js" defer></script>
 
     <link href='https://fonts.googleapis.com/css?family=Playfair' rel='stylesheet'>
 
@@ -17,23 +18,50 @@
 
     <%- include('templates/navBar.ejs'); -%>
 
+    <div class="head">
+            <h1 id="name-restaurant">2 Brother's Collection</h1>
+    </div>
 
-    <div class="wrapper">
-        <div class="slider-wrapper">
-            <div class="slider">
-                <img id="slide-1" src="https://images.pexels.com/photos/2364580/pexels-photo-2364580.jpeg" alt="photo"> 
-                <img id="slide-2" src="https://images.pexels.com/photos/12368175/pexels-photo-12368175.jpeg" alt="photo"> 
-                <img id="slide-3" src="https://images.pexels.com/photos/1124466/pexels-photo-1124466.jpeg" alt="photo"> 
-            </div>
-            <div class="slider-nav">
-                <a href="#slide-1"></a>
-                <a href="#slide-2"></a>
-                <a href="#slide-3"></a>
-            </div>
+    <div class="slider-container">
+
+        <div class="slider-pic active">
+            <img src="https://images.pexels.com/photos/2057318/pexels-photo-2057318.jpeg">
         </div>
 
+        <div class="slider-pic">
+            <img src="https://images.pexels.com/photos/1485166/pexels-photo-1485166.jpeg">
+        </div>
+
+        <div class="slider-pic">
+            <img src="https://images.pexels.com/photos/1124466/pexels-photo-1124466.jpeg">
+        </div>
+
+        <div class="btn">
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+        </div>
+
+    </div>
+
+     <div class="order">
+        <a href="#">ORDER BY CALL</a>
+    </div>
+
+    <div class="imp-shoe-container">
+        <div class="imp-shoe-img">
+            <img src="https://images.unsplash.com/photo-1519931127525-6b6a7619a003?w=12900&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkaWRhc3xlbnwwfHwwfHx8MA%3D%3D" alt="Adidas FortaRun">
+            <!-- https://images.unsplash.com/photo-1514514757092-71ebbc3db4e6?w=1290&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGFkaWRhc3xlbnwwfHwwfHx8MA%3D%3D -->
+        </div>
+
+        <div class="imp-shoe-description">
+            <h2>Adidas FortaRun</h2>
+            <p>Thinking Step into the Adidas FortaRun or Alphabounce models, where street style meets athletic prowess! This sleek, running-inspired sneaker delivers epic comfort and a snug, sock-like fit for all your adventures action.  Powered by Bounce or Cloudfoam tech, every step feels energized and responsive, while the sturdy sole keeps you grounded and ready for action</p>
+        </div>
         
-        
+    </div>
+
+    <div class="brand-container">
+        <h2>Jordan</h2>
     </div>
 
 <!-- <div class="overlay"></div>
@@ -82,7 +110,6 @@
 
     <%- include('templates/footer.ejs'); -%>
 
-    </section>
     
 </body>
 </html>
