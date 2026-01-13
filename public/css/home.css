@@ -1,5 +1,5 @@
 body {
-    font-family: playfair, 'Times New Roman', Times, serif;
+    font-family: Playfair , 'Times New Roman', Times, serif;
     color: #000000;
     background: #EBEBE8;
     margin: 0;
@@ -7,12 +7,23 @@ body {
 }
 
 .head {
-    margin-top: 4rem;
+    margin-top: 5rem;
     text-align: center;   
+    font-family: Roboto Mono, 'Times New Roman', Times, serif;
+    line-height: 0.9;
 }
 
+#shop-name{
+    font-size: 2.7rem;
+    word-spacing: -0.1rem;
+    letter-spacing: -0.3rem;
+    /* font-weight: bold; */
+}
 
-
+.head ul {
+    list-style-type: none;
+    font-size: 1.5rem;
+}
 
 
 
@@ -22,6 +33,7 @@ body {
     position: relative;
     width: 100vw;
     height: 60vh;
+
 }
 
 .slider-pic{
@@ -104,109 +116,64 @@ button{
     max-width: 400px;
 }
 
-
-
-
-
-
-/* 
-
-#name-restaurant{
-    font-size: 4.5rem;
-}
-
-#quote-text {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    font-size: 2.5rem;
-    font-weight: 1000;
-    text-align: center;
-    margin-top: -50px;
-    color: transparent;
-    background: linear-gradient(90deg,
-        #DC5F00 0%,   
-        #EEEEEE 25%,  
-        #DC5F00 50%,  
-        #EEEEEE 75%,  
-        #DC5F00 100% 
-    );
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: sweep 5s linear infinite;
-}
-
-@keyframes sweep {
-    0%   { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
-}
-
-
-#title{
-    font-size: 3rem;
-}
-
-#description{
-    font-size: 1.5rem;
-}
-
-
-.menu-intro {
+.brand-title{
     display: flex;
     align-items: center;
-    gap: 3rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+    justify-content: center;
+    font-size: 2rem;
+    gap: 1rem;
 }
 
-
-.image-menu{
-    flex: 0 0 45%;
+.brand-icon{
+    width: 100px;
+    height: 100px;
+    flex-direction: row;
 }
 
+.brand-img-container{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);    
+    margin:  2rem;
+    gap: 1rem;
+}
 
-.image-menu > img{
+.brand-img{
+   aspect-ratio: 6 / 5;
+}
+.brand-img img{
     width: 100%;
-    height: auto; 
+    height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 
-.info{
-    flex: 1;
-    text-align: left;
-} */
 
-/* .container{
-    margin-top: 8rem;
-    padding: 0;
-} */
 
-/* For the order button */
-.order{
+
+/* For the refrence button */
+.ref-btn{
     width: 100%;
     margin: 0 auto;
     text-align: center;
-    margin-bottom: 1.5rem;
-    margin-top: 2rem;
+    margin: 1.5rem;
 }
 
-.order a{
+.ref-btn a{
     display: inline-block;
-    /* border: 2px solid #A7AFB6; */
-    /* background-color: #A7AFB6; */
+    border: 1px solid #000000;
     padding: 5px 3px;
     font-size: 2rem;
     text-decoration: none;
     color: #000000;
     transition: all 0.7s ease;
+    padding: 1rem;
 }
 
-.order a:hover{
+.ref-btn a:hover{
     background-color: #CFEEEEEE;
     border-radius: 20px;
     color: #000000;
-    border: 2px solid #EEEEEE;
 }
 
 
@@ -219,7 +186,7 @@ button{
     font-size: 1.8rem;
     }
 
-    .order a{
+    .ref-btn a{
         font-size: 1.5rem;
     }
 
@@ -231,6 +198,23 @@ button{
     #description{
         font-size: 1rem;
     }
+
+    .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.60);
+    }
+
+    .imp-shoe-description{
+        position: absolute;       /* relative to container */
+        top: 50%;                 /* halfway down */
+        left: 50%;                /* halfway across */
+        transform: translate(-50%, -50%); /* true centering */
+        text-align: center;
+        margin: 0;                /* remove original margins for mobile */
+        max-width: 80%;           
+        font-size: 1.1rem;  
+    }
 }
 
 @media(max-width: 900px){
@@ -239,33 +223,8 @@ button{
     }
 }
 
-
-/* .wrapper {
-    position: relative;
-    text-align: center;
-    height: clamp(40vh, 85vh, 100vh);
-    overflow: hidden; 
-    margin-top: 90px;
+@media (max-width: 1200px) {
+    .brand-img-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
-
-.wrapper img {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-   display: block;
-}
-
-.overlay {
-   position: absolute;
-   inset: 0;
-   background: rgba(0, 0, 0, 0.60);
-}
-
-.head {
-   position: absolute;
-   text-align: center;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-}
- */
