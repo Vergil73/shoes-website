@@ -1,138 +1,76 @@
 body {
+    font-family: Playfair , 'Times New Roman', Times, serif;
+    color: #000000;
+    background: #EBEBE8;
     margin: 0;
     padding: 0;
 }
 
 
-#quote-text{
-    font-size: 4.5rem;
-}
-
-.menu-wrapper{
-    background-color: rgb(25, 22, 26);
-    margin: 5rem;
-}
-
-
-.menu-head{
-    text-align: center; 
-    padding-top: 33px;
-}
-
-.menu-head a{
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: #EEEEEE;
-    transition: all 0.7s ease;
-    margin: 0 2rem ;
-    
-}
-
-.menu-head a:hover{
-    text-decoration: underline;
-}
-
-.menu-overlay{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    padding: 1rem;
-    border-bottom: 1px solid rgba(204, 204, 204, 0.2705882353);   
-}
-
-.menu-box{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2.5rem;
-    margin-top: 3.5rem;
-}
-
-.menu-img{
-    width: 150px;
-    flex-shrink: 0;
-    margin-bottom: 2rem;
-}
-
-
-.menu-img  img{
-    width: 100%;
-    height: 230px;
-    border-radius: 8px;
-    object-fit: cover;
-}
-
-#menu,
-#drinks {
-    scroll-margin-top: 80px;
-}
-
-
-
-.menu-info{
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    padding: 0;
-    margin: 0;
-}
-
-.menu-info p{
-    margin: 0;
-}
-
-.title{
-    margin: 0;
-    font-size: 22px;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-.price{
-    font-size: 19px;
-}
-
-.description{
-    font-size: 19px;
-}
-
-.head-head{
+.shoes-head{
+    margin-top: 5rem;
     text-align: center;
-    margin-top: 2rem;
 }
 
-@media(max-width: 800px){
-    .menu-box{
-        margin: 0;   
-        padding: 0;     
+.brand-img-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);    
+    margin:  2rem;
+    gap: 1.3rem;
+}
+
+.brand-img{
+   aspect-ratio: 6 / 5;
+}
+.brand-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.brand-title{
+    letter-spacing: 2px;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.brand-list{
+    font-size: 1.3rem;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.brand-list li{
+    list-style: none;
+}
+
+@media(max-width: 1000px){
+    .brand-img-container{    
+        grid-template-columns: repeat(3, 1fr);    
     }
 
-   .menu-head{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-
-
-
-    .menu-overlay{
-        flex-direction: column;
-        align-items: center;
-        gap: 1.rem;
-    }
-
-    .menu-img{
-        width: 100%; 
-        max-width: 200px;
-    }
-
-    .menu-head a{
+    .brand-title{
         font-size: 1.3rem;
     }
 
-    .menu-wrapper{
-        background-color:black;
-        margin: 1rem;
+    .brand-list{
+        font-size: 1.2rem;
+    }
+}
+
+@media(max-width: 500px){
+    .brand-img-container{    
+        grid-template-columns: repeat(2, 1fr);    
+    }
+
+    .brand-title{
+        font-size: 1rem;
+    }
+
+    .brand-list{
+        font-size: 0.9rem;
     }
 }
