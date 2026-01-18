@@ -20,5 +20,4 @@ pool.connect()
 
 module.exports = { pool };
 
-
 // user: postgres, pwd: tracker123 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/singleDetail.css">
+    <script src="/script/script.js" defer></script>
+
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Playfair' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100&display=swap" rel="stylesheet">
+
+    <title>Menu</title>
+</head>
+<body>
+    <%- include('templates/navBar.ejs'); -%>                     
+    
+    <% singleShoe.forEach(shoe => { %>
+
+        <h1 class="shoes-head"><%= shoe.name %></h1>
+        <div class="brand-img-container">
+
+            <div class="brand-img">
+                    <img src="<%=shoe.imageurl %>">
+                    <div class="brand-title"><strong>Name: </strong> <%= shoe.name %></div>
+                <ul class="brand-list">
+                    <li><strong>Price: </strong> $<%= shoe.price %></li>
+                    <li><strong>Brand: </strong> <%= shoe.brand %></li>
+                    <li><strong>Gender</strong> <%= shoe.gender %></li>
+                    <li><strong>Category: </strong> <%= shoe.category %></li>
+                    <li><strong>Inventory: </strong> <%= shoe.is_in_inventory %></li>
+                    <li><strong>Category: </strong> <%= shoe.category %></li>
+
+                </ul>
+            </div>
+        </div>
+    <% }) %>
+
+ 
+      
+       
+    <%- include('templates/footer.ejs'); -%>
+
+</body>
+</html>
