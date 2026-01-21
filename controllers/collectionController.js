@@ -1,17 +1,67 @@
 const { pool } = require('../data/dbConnection');
 
 
+
 // All information on the shoes
 async function shoesInfo(req, res){
     try {
         const result = await pool.query ("SELECT * FROM shoes_info");
         const shoes = result.rows;
-        res.render('collection', {shoes});
+
+        let brand = [];
+        let gender = [];
+        let category = [];
+        // let price = [];
+
+        shoes.forEach(shoe => {
+            const currbrand = shoe.brand
+            const currgender = shoe.gender;
+            const currcategory = shoe.category;
+            const currprice = shoe.price;
+
+            if(!brand.includes(currbrand))
+                brand.push(currbrand);
+
+            if(!gender.includes(currgender))
+                gender.push(currgender);
+
+            if(!category.includes(currcategory))
+                category.push(currcategory);
+
+            // if(!price.includes(currprice))
+            //     price.push(currprice);
+            
+        }); 
+    
+
+        res.render('collection', {shoes, brand, gender, category});
+        
+
        
+
     } catch (error) {
         console.log('Error while reading from database for all shoes: ', error);
     }
 }
+
+
+// async function shoeBrand(req, res) {
+//     try {
+//         const { rows } = await pool.query("SELECT brand FROM shoes_info");
+//         console.log("sd");
+//         res.render('collection', { rows });
+
+//     } catch (error) {
+//         console.log('Error while reading from database for shoe brand: ', error);
+//     }    
+// }
+
+
+
+
+
+
+
 
 // Single shoes information
 async function getSingleShoes(req, res){
@@ -21,9 +71,7 @@ async function getSingleShoes(req, res){
         const { rows } = await pool.query("SELECT * FROM shoes_info WHERE name= $1", [shoeName]);
         const singleShoe = rows;
         res.render('singleDetail', { singleShoe });
-        
-
-        
+ 
 
     } catch(err){
         console.log('Error while reading from database for all single shoes:', err);
@@ -33,9 +81,6 @@ async function getSingleShoes(req, res){
 
 
 module.exports = { shoesInfo, getSingleShoes };
-
-
-
 
 // Inserted into the postgress database from json
 

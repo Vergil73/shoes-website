@@ -1,0 +1,24 @@
+.category-container{
+    margin: 3rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.category{
+    cursor: pointer;
+}
+
+/* .category input{
+    max-width: 200px;
+    width: 100%
+} */
+
+.category a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.category ul li{
+    list-style: none;
+}

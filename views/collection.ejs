@@ -6,7 +6,13 @@
 
     <link rel="stylesheet" href="/css/collection.css">
     <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="stylesheet" href="/css/category.css">
+
     <script src="/script/script.js" defer></script>
+    <!-- category script -->
+    <!-- <script src="/script/category.js" defer></script> -->
+
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100&display=swap" rel="stylesheet">
@@ -19,8 +25,71 @@
     <h1 class="shoes-head">SHOES</h1>
 
 
-    <div class="brand-img-container">
 
+   <div class="category-container">
+        <div class="category">
+            <ul>
+                <li>
+                    BRAND
+                    <ul>
+                        <% brand.forEach(brand => { %>
+                        <li> <a href="brand?name=<%= brand%>"><%= brand %></a></li> 
+                        <% }); %>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="category">
+            <ul>
+                <li>
+                    GENDER
+                    <ul>
+                        <% gender.forEach(gender => { %>
+                        <li> <a href="gender?name=<%= gender%>"><%= gender %> </a></li> 
+                        <% }); %>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="category">
+            <ul>
+                <li>
+                    CATEGORY
+                    <ul>
+                        <% category.forEach(category => { %>
+                        <li> <a href="category?name=<%= category%>"><%= category %> </a></li> 
+                        <% }); %>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="category">
+            <ul>
+                <li>
+                    PRICE<!-- <a href="/collection">PRICE</a> -->
+                    <ul>
+                        <input type="number" placeholder="1,000" min="1000" max="50000">
+                        <input type="number" placeholder="50,000" min="1000" max="50000">
+                    </ul>
+                </li>
+            </ul>
+        </div>  
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="brand-img-container">
         <% shoes.forEach(shoe => { %>
              <div class="brand-img">
                 <a href="/shoes/<%=shoe.name %>" style="text-decoration: none; color: inherit;">
@@ -30,8 +99,16 @@
                 <ul class="brand-list">
                     <li>$ <%= shoe.price %></li>
                 </ul>
-        </div>
+            </div>
+        
         <% }) %>
+    </div>
+    <%- include('templates/footer.ejs'); -%>
+
+</body>
+</html>
+
+
 
  <!-- <div class="brand-img">
                 <img src="">
@@ -42,9 +119,3 @@
         </div>
        -->
     
-    </div> 
-
-    <%- include('templates/footer.ejs'); -%>
-
-</body>
-</html>
