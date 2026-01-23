@@ -1,13 +1,14 @@
 .category-container{
-    margin: 3rem;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    margin: 2rem;
+    /* display: flex;
+    justify-content: column;
+    flex-wrap: wrap; */
+    
 }
 
-.category{
+/* .category{
     cursor: pointer;
-}
+} */
 
 /* .category input{
     max-width: 200px;

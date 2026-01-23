@@ -1,5 +1,6 @@
 const { pool } = require('../data/dbConnection');
-
+const { categoriesList } = require('./categoryController');
+// const { shoeBrand } = require('./categoryController');
 
 
 // All information on the shoes
@@ -8,36 +9,31 @@ async function shoesInfo(req, res){
         const result = await pool.query ("SELECT * FROM shoes_info");
         const shoes = result.rows;
 
-        let brand = [];
-        let gender = [];
-        let category = [];
-        // let price = [];
-
-        shoes.forEach(shoe => {
-            const currbrand = shoe.brand
-            const currgender = shoe.gender;
-            const currcategory = shoe.category;
-            const currprice = shoe.price;
-
-            if(!brand.includes(currbrand))
-                brand.push(currbrand);
-
-            if(!gender.includes(currgender))
-                gender.push(currgender);
-
-            if(!category.includes(currcategory))
-                category.push(currcategory);
-
-            // if(!price.includes(currprice))
-            //     price.push(currprice);
-            
-        }); 
-    
-
-        res.render('collection', {shoes, brand, gender, category});
+        const { brand, gender, category } = categoriesList(shoes);
         
+        const selectBrand = req.query.brand;
+        const selectGender = req.query.gender;
+        const selectCategory = req.query.category;
 
-       
+
+        if(selectBrand) {
+            const { rows } = await pool.query("SELECT * FROM shoes_info WHERE brand= $1", [selectBrand]);
+            const shoes = rows;
+            res.render('collection', {shoes, brand, gender, category});
+            
+        } else if(selectGender){
+            const { rows } = await pool.query("SELECT * FROM shoes_info WHERE gender= $1", [selectGender]);
+            const shoes = rows;
+            res.render('collection', {shoes, brand, gender, category});
+            
+        } else if(selectCategory){
+            const { rows } = await pool.query("SELECT * FROM shoes_info WHERE category= $1", [selectCategory]);
+            const shoes = rows;
+            res.render('collection', {shoes, brand, gender, category});
+            
+        } else{
+            res.render('collection', {shoes, brand, gender, category});
+        }
 
     } catch (error) {
         console.log('Error while reading from database for all shoes: ', error);
@@ -70,6 +66,7 @@ async function getSingleShoes(req, res){
         const shoeName = req.params.shoesName;
         const { rows } = await pool.query("SELECT * FROM shoes_info WHERE name= $1", [shoeName]);
         const singleShoe = rows;
+        console.log(shoeName);
         res.render('singleDetail', { singleShoe });
  
 

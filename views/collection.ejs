@@ -5,13 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="/css/collection.css">
-    <link rel="stylesheet" href="/css/main.css">
-
-    <link rel="stylesheet" href="/css/category.css">
 
     <script src="/script/script.js" defer></script>
-    <!-- category script -->
-    <!-- <script src="/script/category.js" defer></script> -->
 
 
     <!-- Fonts -->
@@ -22,76 +17,19 @@
 <body>
     <%- include('templates/navBar.ejs'); -%>
 
-    <h1 class="shoes-head">SHOES</h1>
+    <a href="/collection">
+        <h1 class="shoes-head">SHOES</h1>
+    </a>
 
-
-
-   <div class="category-container">
-        <div class="category">
-            <ul>
-                <li>
-                    BRAND
-                    <ul>
-                        <% brand.forEach(brand => { %>
-                        <li> <a href="brand?name=<%= brand%>"><%= brand %></a></li> 
-                        <% }); %>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="category">
-            <ul>
-                <li>
-                    GENDER
-                    <ul>
-                        <% gender.forEach(gender => { %>
-                        <li> <a href="gender?name=<%= gender%>"><%= gender %> </a></li> 
-                        <% }); %>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="category">
-            <ul>
-                <li>
-                    CATEGORY
-                    <ul>
-                        <% category.forEach(category => { %>
-                        <li> <a href="category?name=<%= category%>"><%= category %> </a></li> 
-                        <% }); %>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="category">
-            <ul>
-                <li>
-                    PRICE<!-- <a href="/collection">PRICE</a> -->
-                    <ul>
-                        <input type="number" placeholder="1,000" min="1000" max="50000">
-                        <input type="number" placeholder="50,000" min="1000" max="50000">
-                    </ul>
-                </li>
-            </ul>
-        </div>  
-
-    </div>
-
-
-
-
-
-
-
-
+<div class="wrapper">
+    <%- include('templates/category.ejs'); -%>
 
 
     <div class="brand-img-container">
+
         <% shoes.forEach(shoe => { %>
              <div class="brand-img">
+                
                 <a href="/shoes/<%=shoe.name %>" style="text-decoration: none; color: inherit;">
                     <img src="<%=shoe.imageurl %>">
                     <div class="brand-title"><%= shoe.name %></div>
@@ -103,19 +41,10 @@
         
         <% }) %>
     </div>
+</div>
     <%- include('templates/footer.ejs'); -%>
+
+
 
 </body>
 </html>
-
-
-
- <!-- <div class="brand-img">
-                <img src="">
-                <div class="brand-title"></div>
-                <ul class="brand-list">
-                    <li></li>
-                </ul>
-        </div>
-       -->
-    

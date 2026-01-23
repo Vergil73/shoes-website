@@ -6,6 +6,10 @@ body {
     padding: 0;
 }
 
+.wrapper{
+    display: flex;
+    /* flex-wrap: wrap; */
+}
 
 .shoes-head{
     margin-top: 5rem;
@@ -14,6 +18,11 @@ body {
     word-spacing: -0.1rem;
     letter-spacing: -0.3rem;
     font-family: Roboto Mono, 'Times New Roman', Times, serif;
+}
+
+a {
+    /* text-decoration: none; */
+    color: inherit;
 }
 
 .brand-img-container{
@@ -65,7 +74,14 @@ body {
     }
 }
 
-@media(max-width: 500px){
+@media(max-width: 600px){
+
+    .wrapper{
+        /* display: flex; */
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
     .brand-img-container{    
         grid-template-columns: repeat(2, 1fr);    
     }
