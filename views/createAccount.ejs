@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SignIn</title>
+</head>
+<body>
+    <h1>CREATE ACCOOUNT</h1>
+
+    <div class="create-account">
+        <form action="/newAccount" method="post">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Klein" required>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="klein@gmail.com" autocomplete="on" required>
+            <label for="password">Password</label>
+            <input 
+                type="password" 
+                name="password" 
+                id="password" 
+                placeholder="password" 
+                autocomplete="off" 
+                pattern="(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}" 
+                title="Password must be at least 8 characters long, containing at least one number and one special character." 
+                required
+            >
+            <button type="submit"> Create account</button>
+        </form>
+    </div>
+
+    <% if (locals.error) { %>
+    <p style="color: red;"><%= error %></p>
+    <% } %> 
+      
+
+ 
+</body>
+</html>

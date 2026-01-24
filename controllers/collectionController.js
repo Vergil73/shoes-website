@@ -1,7 +1,5 @@
 const { pool } = require('../data/dbConnection');
 const { categoriesList } = require('./categoryController');
-// const { shoeBrand } = require('./categoryController');
-
 
 // All information on the shoes
 async function shoesInfo(req, res){
@@ -41,24 +39,6 @@ async function shoesInfo(req, res){
 }
 
 
-// async function shoeBrand(req, res) {
-//     try {
-//         const { rows } = await pool.query("SELECT brand FROM shoes_info");
-//         console.log("sd");
-//         res.render('collection', { rows });
-
-//     } catch (error) {
-//         console.log('Error while reading from database for shoe brand: ', error);
-//     }    
-// }
-
-
-
-
-
-
-
-
 // Single shoes information
 async function getSingleShoes(req, res){
 
@@ -66,7 +46,6 @@ async function getSingleShoes(req, res){
         const shoeName = req.params.shoesName;
         const { rows } = await pool.query("SELECT * FROM shoes_info WHERE name= $1", [shoeName]);
         const singleShoe = rows;
-        console.log(shoeName);
         res.render('singleDetail', { singleShoe });
  
 
@@ -78,6 +57,8 @@ async function getSingleShoes(req, res){
 
 
 module.exports = { shoesInfo, getSingleShoes };
+
+
 
 // Inserted into the postgress database from json
 

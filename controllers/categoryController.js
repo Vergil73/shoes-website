@@ -35,19 +35,6 @@ function categoriesList(shoes){
         return {brand, gender, category};
 }
 
-
-// async function shoeBrand(req, res) {
-//     try {
-//         const brand = req.query.brand;
-//         const {rows}  = await pool.query("SELECT * FROM shoes_info WHERE brand=$1", [brand]);
-//         console.log(rows);
-
-
-//     } catch (error) {
-//         console.log("Shoes Brand error in database: ", error);
-//     }    
-// }
-
 module.exports = { categoriesList };
 
 

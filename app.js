@@ -39,6 +39,10 @@ app.use('/', contact);
 const aboutUs = require('./routes/aboutRoute');
 app.use('/', aboutUs);
 
+// Authentication
+const authentication = require('./routes/authenticationRoute');
+app.use('/', authentication);
+
 
 
 
