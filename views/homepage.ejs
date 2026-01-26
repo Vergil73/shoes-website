@@ -22,7 +22,9 @@
 
 <body>
 
-    <%- include('templates/navBar.ejs'); -%>
+    <%- include('templates/navBar.ejs'); -%> 
+
+    
 
     <div class="head">
             <h1 id="shop-name">YOUR SHOP? MAYBEEE??</h1>
@@ -32,7 +34,11 @@
             </ul>
     </div>
 
-
+    <% if(userId) {%>
+        <h2> <%= logged %> </h2>
+    <% } else{ %>
+        <h2>Nothing</h2>
+   <% } %>
 
     <div class="slider-container">
 

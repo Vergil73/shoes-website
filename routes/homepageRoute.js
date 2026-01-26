@@ -1,6 +1,11 @@
 const Router = require('express');
 const routes = Router();
 
+
+// Middleware
+const isAuth = require('../middleware/authMiddleware');
+
+
 routes.get('/',(req, res)=>{
     res.render('homepage');
 });

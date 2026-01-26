@@ -51,17 +51,26 @@ async function login(req, res) {
         const username = req.body.username;
         const plainPassword = req.body.password;
 
-        const { rows } = await pool.query("SELECT password_hash FROM users WHERE name = $1 OR email = $2", [username, username]);
+        const { rows } = await pool.query("SELECT id, password_hash, is_admin FROM users WHERE name = $1 OR email = $2", [username, username]);
+        
 
+        if(rows.length > 0){ //checks wether the username/email exist in database
 
-        if(rows.length > 0){
-            const password_hash = rows[0].password_hash; // stored hash password in the database
+            const password_hash = rows[0].password_hash; // get stored hash password in the database
             const match = await bcrypt.compare(plainPassword, password_hash); // compares the database hashed password with the plain pasword of user
+            
+            // checks for right password
             if(match){
-                console.log("SUCCESSFULL");
-                res.redirect('/');
+                const id = rows[0].id;
+                const admin = rows[0].is_admin;
+                // express-session
+                req.session.userId = id; // stores session with id of a user
+                req.session.isAdmin = admin; // stores the admin information
+                const userId = req.session.userId;
+
+                res.render('homepage', { logged: "User logged in"}); // homepage after sucessfull login
             } else{
-                res.render('login', { error: "Invalid username or password" }); 
+                res.render('login', { error: "Invalid username or password", userId}); 
             }
 
         }else{
@@ -73,5 +82,8 @@ async function login(req, res) {
         console.log('Error while logging in', error);
     }
 };
+
+
+// const logout = req.session.destroy('');
 
 module.exports = { storeCredentials, login };

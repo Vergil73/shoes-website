@@ -4,6 +4,21 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
+// express-session
+const session = require('express-session');
+// app.set('trust proxy', 1); trust proxy for https
+
+app.use(session({
+  secret: process.env.secretSession,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false,
+    maxAge: 60000
+  }
+  }
+))
+
 // views
 app.set('views', './views');
 app.set('view engine', 'ejs');
