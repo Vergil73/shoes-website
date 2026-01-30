@@ -37,6 +37,11 @@
                 <ul class="brand-list">
                     <li>$ <%= shoe.price %></li>
                 </ul>
+
+                <% if(admin) { %>
+                    <a href="/update/<%= shoe.id %>">Update</a>
+                <% } %>
+
             </div>
         
         <% }) %>

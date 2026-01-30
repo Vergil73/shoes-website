@@ -9,11 +9,21 @@
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
+            
         </button>
         <!-- <h1>ss</h1> -->
         <ul class="navbar-menu">
             <li><a href="/">HOME</a></li>
             <li><a href="/collection">COLLECTIONS</a></li>
+            <li><% if(admin) { %>
+                    <a href="/addShoe">ADD SHOE</a>
+                <% } %>
+            </li>
+            <!-- <a href="/signIn">Login</a>
+            <form action="/logout" method="POST">
+                <button type="submit">Logout</button>
+            </form> -->
+
 
 
 
@@ -21,6 +31,7 @@
             <!-- <li><a href="/aboutUs">ABOUT US</a></li> -->
             <!-- <li><a href="/contact">CONTACT US</a></li> -->
         </ul>
+
         
     </div>
 

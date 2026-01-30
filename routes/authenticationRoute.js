@@ -3,7 +3,7 @@ const routes= express.Router();
 
 const { storeCredentials } = require('../controllers/authenticationController');
 const { login } = require('../controllers/authenticationController');
-// const { logout } = require('../controllers/authenticationController')
+const { logout } = require('../controllers/authenticationController')
 
 // signup
 routes.get('/signup', (req, res)=>{
@@ -20,6 +20,6 @@ routes.get('/signin', (req, res)=>{
 routes.post('/login', login);
 
 // logout
-// routes.get('/logout', logout)
+routes.post('/logout', logout)
 
 module.exports = routes;

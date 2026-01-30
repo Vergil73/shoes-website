@@ -3,6 +3,8 @@ const routes = express.Router();
 const { shoesInfo } = require('../controllers/collectionController');
 const { getSingleShoes } = require('../controllers/collectionController');
 
+// const isAdmin = require('../middleware/authMiddleware');
+
 // All shoes in the menu section
 routes.get('/collection', shoesInfo);
 

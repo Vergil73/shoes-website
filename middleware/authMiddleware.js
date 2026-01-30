@@ -5,10 +5,8 @@ async function isAdmin(req, res, next){
         if(req.session.userId && req.session.isAdmin){
             next();
         } else{
-            res.render('/', {error: "Admin only"});
+            res.render('homepage', {error: "Admin only"});
         }
-
-
 
     } catch (error) {
         console.log("Error in the authMiddleware", error)

@@ -12,12 +12,18 @@ app.use(session({
   secret: process.env.secretSession,
   resave: false,
   saveUninitialized: false,
+  rolling: true,
   cookie: {
     secure: false,
-    maxAge: 60000
+    maxAge: 10000 * 60 * 60
   }
   }
-))
+));
+// checks for the admin user
+app.use((req, res, next) => {
+  res.locals.admin = req.session.isAdmin && true; 
+  next();
+});
 
 // views
 app.set('views', './views');
@@ -35,7 +41,6 @@ app.use(bodyParser.urlencoded({ extended: true}));
 
 // Use built-in middleware to parse JSON payloads
 app.use(express.json());
-
 
 
 // Homepage
@@ -58,12 +63,33 @@ app.use('/', aboutUs);
 const authentication = require('./routes/authenticationRoute');
 app.use('/', authentication);
 
+// Update
+const update = require('./routes/updateRoute');
+app.use('/', update);
 
+// ERROR: page 404 not found
+app.use((req, res, next) => {
+  const err = new Error('Page not found. '); //Error message for page not found
+  err.status = 404;
+  next(err); //Sends the err funcion to error handling below
+});
 
+// Error handling in the server
+app.use((err, req, res, next) => {
+  const status = err.status || 500;  //checks whether the status us 404 or 500
+
+  res.status(status).render('error', { 
+    status,
+    message: err.message || 'Something went wrong'
+  });
+
+  // console.error(err); this is not working as expected
+
+});
 
 app.listen(process.env.PORT || 3000, () => {
-    console.log(`Server Is Running On Port ${process.env.PORT}`);
-})
-
+  const PORT = process.env.PORT || 3000
+  console.log(`Server Is Running On Port ${process.env.PORT || 3000}`);
+});
 
 // express, ejs, pg, nodemon, dotenv

@@ -34,11 +34,18 @@
             </ul>
     </div>
 
-    <% if(userId) {%>
-        <h2> <%= logged %> </h2>
-    <% } else{ %>
-        <h2>Nothing</h2>
-   <% } %>
+
+
+        <!-- <a href="/signIn" style="color: black; text-decoration: none;">Login</a>
+
+        <form action="/logout" method="POST" style="display: inline;">
+            <button type="submit" style="color: black; background: none; border: none; cursor: pointer;">
+                Logout
+            </button>
+        </form>
+ -->
+
+
 
     <div class="slider-container">
 
@@ -107,7 +114,7 @@
     </div>
   
     <div class="ref-btn">
-        <a href="/collection">Shop Nike Shoes</a>
+        <a href="/collection?brand=NIKE">Shop Nike Shoes</a>
     </div>
 
     <!-- PUMA SHOES -->
@@ -149,6 +156,5 @@
     <br>
     <%- include('templates/footer.ejs'); -%>
 
-    
 </body>
 </html>

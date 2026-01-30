@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/singleDetail.css">
+    <script src="/script/script.js" defer></script>
+
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Playfair' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100&display=swap" rel="stylesheet">
+
+    <title>Menu</title>
+</head>
+<body>
+
+    
+    <div class="brand-img-container">
+        <h2>Add new shoe</h2>
+
+            <div class="brand-img">
+                    <!-- <img src=""> -->
+                    <!-- <div class="brand-title"><strong></strong> -->
+                <div>
+                    <ul class="brand-list">
+                        <form action="/addShoe" method="POST">
+                            <!-- <li><label>id: </label><input type="hidden" name="id" id="id" value=""></li> -->
+                            <li><label>Name: </label><input type="text" name="name" id="name"> </li>
+                            <li><label>Brand: </label><input type="text" name="brand" id="brand"> </li> 
+                            <li><label>Gender: </label><input type="text" name="gender" id="gender"> </li>
+                            <li><label>Category: </label><input type="text" name="category" id="category"> </li>
+                            <li><label>Price: </label><input type="number" name="price" id="price"> </li>
+                            <li><label>Items_Left: </label><input type="number" name="items_left" id="items_left"> </li>
+
+                            <li>
+                                <label>Is In Inventory: </label>
+                                <input type="checkbox" name="is_in_inventory" value="true">                            
+                                
+                            </li>
+                            
+                            <li><label>image URL: </label><input type="text" checked="checked" name="imageurl" id="imageurl"> </li>
+                            <button type="submit"> Confirm </button>
+                        </form>
+                    </ul>
+                </div>
+            </div>
+
+
+    </div>
+
+        <!-- name| brand  | gender | category | price  | is_in_inventory | items_left |imageurl     -->
+
+
+</body>
+</html>

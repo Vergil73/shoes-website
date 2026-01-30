@@ -13,7 +13,7 @@ async function shoesInfo(req, res){
         const selectGender = req.query.gender;
         const selectCategory = req.query.category;
 
-
+    
         if(selectBrand) {
             const { rows } = await pool.query("SELECT * FROM shoes_info WHERE brand= $1", [selectBrand]);
             const shoes = rows;
@@ -27,6 +27,7 @@ async function shoesInfo(req, res){
         } else if(selectCategory){
             const { rows } = await pool.query("SELECT * FROM shoes_info WHERE category= $1", [selectCategory]);
             const shoes = rows;
+           
             res.render('collection', {shoes, brand, gender, category});
             
         } else{

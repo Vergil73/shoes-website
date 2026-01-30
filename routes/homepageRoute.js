@@ -3,7 +3,7 @@ const routes = Router();
 
 
 // Middleware
-const isAuth = require('../middleware/authMiddleware');
+const isAdmin = require('../middleware/authMiddleware');
 
 
 routes.get('/',(req, res)=>{

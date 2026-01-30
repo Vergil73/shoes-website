@@ -14,7 +14,6 @@ async function storeCredentials(req, res) {
         const email = req.body.email;
         const plainPassword = req.body.password;
 
-
         const rows = await pool.query("SELECT id FROM users WHERE name = $1 OR email = $2", [username, email]);
         const check = rows;
 
@@ -53,7 +52,6 @@ async function login(req, res) {
 
         const { rows } = await pool.query("SELECT id, password_hash, is_admin FROM users WHERE name = $1 OR email = $2", [username, username]);
         
-
         if(rows.length > 0){ //checks wether the username/email exist in database
 
             const password_hash = rows[0].password_hash; // get stored hash password in the database
@@ -68,7 +66,7 @@ async function login(req, res) {
                 req.session.isAdmin = admin; // stores the admin information
                 const userId = req.session.userId;
 
-                res.render('homepage', { logged: "User logged in"}); // homepage after sucessfull login
+                res.redirect('/'); // homepage after sucessfull login
             } else{
                 res.render('login', { error: "Invalid username or password", userId}); 
             }
@@ -83,7 +81,12 @@ async function login(req, res) {
     }
 };
 
+function logout(req, res){
+    req.session.destroy(() => {
+		res.clearCookie("sessionId");
+		res.redirect("/signIn");
+	});
+}
 
-// const logout = req.session.destroy('');
 
-module.exports = { storeCredentials, login };
+module.exports = { storeCredentials, login, logout };

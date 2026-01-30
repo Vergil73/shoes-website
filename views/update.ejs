@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/singleDetail.css">
+    <script src="/script/script.js" defer></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100&display=swap" rel="stylesheet">
+
+    <title>Update Menu</title>
+</head>
+<body>
+
+<h2>Update Page</h2>
+
+<div class="brand-img-container">
+
+    <% result.forEach(shoe => { %>
+
+        <div class="brand-img">
+            <img src="<%= shoe.imageurl %>" alt="<%= shoe.name %>">
+
+            <div class="brand-title">
+                <strong><%= shoe.name %></strong>
+            </div>
+
+            <!-- UPDATE FORM -->
+            <form action="/updateSubmit" method="POST">
+                <input type="hidden" name="id" value="<%= shoe.id %>">
+
+                <ul class="brand-list">
+                    <li>
+                        <label>Name:</label>
+                        <input type="text" name="name" value="<%= shoe.name %>">
+                    </li>
+
+                    <li>
+                        <label>Brand:</label>
+                        <input type="text" name="brand" value="<%= shoe.brand %>">
+                    </li>
+
+                    <li>
+                        <label>Gender:</label>
+                        <input type="text" name="gender" value="<%= shoe.gender %>">
+                    </li>
+
+                    <li>
+                        <label>Category:</label>
+                        <input type="text" name="category" value="<%= shoe.category %>">
+                    </li>
+
+                    <li>
+                        <label>Price:</label>
+                        <input type="number" name="price" value="<%= shoe.price %>">
+                    </li>
+
+                    <li>
+                        <label>Items Left:</label>
+                        <input type="number" name="items_left" value="<%= shoe.items_left %>">
+                    </li>
+
+                    <li>
+                        <label>Is In Inventory: </label>
+                        <input type="checkbox" name="is_in_inventory" value="true" 
+                            <% if (shoe.is_in_inventory === true) { %> 
+                            checked 
+                            <% } else { %> 
+                            <% } %> 
+                        >
+                    </li>
+
+                    <li>
+                        <label>Image URL:</label>
+                        <input type="text" name="imageurl" value="<%= shoe.imageurl %>">
+                    </li>
+                </ul>
+
+                <button id="confirm-btn" type="submit">Confirm</button>
+            </form>
+
+            <!-- DELETE FORM -->
+            <form action="/deleteShoe" method="POST">
+                <input type="hidden" name="id" value="<%= shoe.id %>">
+                <button type="submit">Delete</button>
+            </form>
+
+        </div>
+
+    <% }) %>
+    
+
+</div>
+
+</body>
+</html>
